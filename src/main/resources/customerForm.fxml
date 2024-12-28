@@ -1,42 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXBadge?>
-<?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.validation.DoubleValidator?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.control.Button?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.customerFormController">
-   <children>
-      <JFXBadge layoutX="212.0" layoutY="121.0" prefHeight="43.0" prefWidth="86.0">
-         <children>
-            <DoubleValidator />
-         </children>
-      </JFXBadge>
-      <JFXBadge layoutX="222.0" layoutY="131.0" prefHeight="43.0" prefWidth="86.0">
-         <children>
-            <DoubleValidator />
-         </children>
-      </JFXBadge>
-      <Label alignment="CENTER" layoutX="9.0" layoutY="10.0" prefHeight="76.0" prefWidth="600.0" style="-fx-background-color: #4d4dff;" text="Customer Details">
-         <font>
-            <Font name="System Bold" size="42.0" />
-         </font>
-      </Label>
-      <TableView fx:id="tbl" layoutX="-2.0" layoutY="114.0" prefHeight="177.0" prefWidth="610.0">
-         <columns>
-            <TableColumn fx:id="txtId" prefWidth="121.59997862577438" text="Customer ID" />
-            <TableColumn fx:id="txtName" prefWidth="167.99998474121094" text="Customer Name" />
-            <TableColumn fx:id="txtAddress" prefWidth="191.20001220703125" text="Address" />
-            <TableColumn fx:id="txtSalary" prefWidth="118.40008544921875" text="Salary" />
-         </columns>
-      </TableView>
-      <JFXButton layoutX="14.0" layoutY="308.0" onAction="#btnLoadDataOnAction" style="-fx-background-color: #b3b3ff;" text="Add Customer" />
-      <JFXButton layoutX="170.0" layoutY="308.0" onAction="#btnDeleteCustomerOnClick" style="-fx-background-color: #66ff66;" text="Delete Customer" />
-      <JFXButton layoutX="324.0" layoutY="308.0" onAction="#btnUpdateCustomerOnClick" style="-fx-background-color: #ff4d4d;" text="Update Customer" />
-      <JFXButton layoutX="469.0" layoutY="307.0" onAction="#btnReloadTableOnClick" prefHeight="26.0" prefWidth="105.0" style="-fx-background-color: #dfbf9f;" text="Reload Table" />
-   </children>
-</AnchorPane>
+<BorderPane fx:id="mainContainer" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml"
+            xmlns="http://javafx.com/javafx/8.0.171" fx:controller="controller.customerFormController">
+    <top>
+        <HBox spacing="10" alignment="CENTER">
+            <Button layoutX="14.0" layoutY="308.0" onAction="#btnLoadDataOnAction"
+                    style="-fx-background-color: #b3b3ff;" text="Add Customer"/>
+            <Button layoutX="170.0" layoutY="308.0" onAction="#btnDeleteCustomerOnClick"
+                    style="-fx-background-color: #66ff66;" text="Delete Customer"/>
+            <Button layoutX="324.0" layoutY="308.0" onAction="#btnUpdateCustomerOnClick"
+                    style="-fx-background-color: #ff4d4d;" text="Update Customer"/>
+            <Button layoutX="469.0" layoutY="307.0" onAction="#btnReloadTableOnClick" prefHeight="26.0"
+                    prefWidth="105.0" style="-fx-background-color: #dfbf9f;" text="View Customers"/>
+        </HBox>
+    </top>
+
+    <center>
+        <Pane fx:id="contentArea"/>
+        <!-- Placeholder for dynamic content -->
+    </center>
+</BorderPane>

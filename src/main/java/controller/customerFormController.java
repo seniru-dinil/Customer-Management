@@ -1,92 +1,43 @@
 package controller;
 
-import dbc.DBConnection;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Scene;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
-import model.Customer;
+import javafx.scene.Node;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 
 import java.io.IOException;
-import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ResourceBundle;
 
-public class customerFormController implements Initializable {
+public class customerFormController {
 
-    @FXML
-    private TableView<Customer> tbl;
-
-    @FXML
-    private TableColumn<?, ?> txtAddress;
-
-    @FXML
-    private TableColumn<?, ?> txtId;
-
-    @FXML
-    private TableColumn<?, ?> txtName;
-
-    @FXML
-    private TableColumn<?, ?> txtSalary;
-
-    public void loadTable() throws SQLException {
-        Connection dbc = DBConnection.getInstance().getConnection();
-        String stm = "SELECT * FROM customer";
-        PreparedStatement preparedStatement = dbc.prepareStatement(stm);
-        ResultSet resultSet = preparedStatement.executeQuery();
-        ObservableList<Customer> observableList = FXCollections.observableArrayList();
-        txtId.setCellValueFactory(new PropertyValueFactory<>("id"));
-        txtName.setCellValueFactory(new PropertyValueFactory<>("name"));
-        txtAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
-        txtSalary.setCellValueFactory(new PropertyValueFactory<>("salary"));
-        while (resultSet.next()) {
-            observableList.add(new Customer(resultSet.getString(2), resultSet.getString(1), resultSet.getString(3), resultSet.getDouble(4)));
-        }
-        tbl.setItems(observableList);
-    }
+    public Pane contentArea;
+    public BorderPane mainContainer;
 
     public void btnLoadDataOnAction(ActionEvent actionEvent) throws SQLException, IOException {
-        Stage stage = new Stage();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/addCustomerForm.fxml"))));
-        stage.show();
+        loadUI("/addCustomerForm.fxml");
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        try {
-            loadTable();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
 
     public void btnDeleteCustomerOnClick(ActionEvent actionEvent) throws IOException {
-        Stage stage = new Stage();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/deleteCustomerForm.fxml"))));
-        stage.show();
+        loadUI("/deleteCustomerForm.fxml");
     }
 
     public void btnUpdateCustomerOnClick(ActionEvent actionEvent) throws IOException {
-        Stage stage = new Stage();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/updateCustomerForm.fxml"))));
-        stage.show();
+        loadUI("/updateCustomerForm.fxml");
     }
 
     public void btnReloadTableOnClick(ActionEvent actionEvent) {
+        loadUI("/viewCustomerForm.fxml");
+    }
+
+
+    private void loadUI(String fxmlFile) {
         try {
-            loadTable();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+            Object node = FXMLLoader.load(getClass().getResource(fxmlFile));
+            contentArea.getChildren().setAll((Node) node); // Replaces the content area with the loaded UI
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
