@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.deleteCustomerFormController">
+   <children>
+      <JFXTextField fx:id="txtId" layoutX="167.0" layoutY="116.0" />
+      <JFXTextField fx:id="txtName" layoutX="167.0" layoutY="166.0" />
+      <JFXTextField fx:id="txtAddress" layoutX="167.0" layoutY="223.0" />
+      <JFXTextField fx:id="txtSalary" layoutX="167.0" layoutY="276.0" />
+      <Label layoutX="24.0" layoutY="239.0" text="customer address">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="24.0" layoutY="292.0" text="customer salary">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="13.0" layoutY="12.0" prefHeight="68.0" prefWidth="593.0" text="Delete Customer Form">
+         <font>
+            <Font name="System Bold" size="41.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="473.0" layoutY="359.0" onAction="#btnDeleteCustomerOnClick" prefHeight="26.0" prefWidth="110.0" text="Delete Customer" />
+      <JFXButton layoutX="334.0" layoutY="129.0" onAction="#btnSearchCustomerOnClick" text="Search Customer" />
+      <Label layoutX="24.0" layoutY="132.0" text="customer id">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="24.0" layoutY="182.0" text="customer name">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
