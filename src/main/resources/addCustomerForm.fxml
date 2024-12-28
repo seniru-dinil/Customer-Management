@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="318.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.addCustomerFormController">
    <children>
       <JFXTextField fx:id="txtName" layoutX="157.0" layoutY="106.0" />
@@ -38,6 +37,6 @@
             <Font name="System Bold" size="41.0" />
          </font>
       </Label>
-      <JFXButton layoutX="449.0" layoutY="266.0" onAction="#btnAddCustomerOnClick" prefHeight="26.0" prefWidth="97.0" text="Add Customer" />
+      <JFXButton layoutX="449.0" layoutY="266.0" onAction="#btnAddCustomerOnClick" prefHeight="26.0" prefWidth="97.0" style="-fx-background-color: #4d94ff;" text="Add Customer" />
    </children>
 </AnchorPane>

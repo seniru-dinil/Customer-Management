@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.updateCustomerFormController">
+<AnchorPane prefHeight="335.0" prefWidth="607.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.updateCustomerFormController">
    <children>
       <JFXTextField fx:id="txtId" layoutX="167.0" layoutY="116.0" />
       <JFXTextField fx:id="txtName" layoutX="167.0" layoutY="166.0" />
@@ -27,8 +27,8 @@
             <Font name="System Bold" size="41.0" />
          </font>
       </Label>
-      <JFXButton layoutX="473.0" layoutY="359.0" onAction="#btnUpdateCustomerOnClick" prefHeight="26.0" prefWidth="110.0" text="update Customer" />
-      <JFXButton layoutX="334.0" layoutY="129.0" onAction="#btnSearchCustomerOnClick" text="Search Customer" />
+      <JFXButton layoutX="473.0" layoutY="289.0" onAction="#btnUpdateCustomerOnClick" prefHeight="26.0" prefWidth="110.0" style="-fx-background-color: #ff6666;" text="update Customer" />
+      <JFXButton layoutX="334.0" layoutY="129.0" onAction="#btnSearchCustomerOnClick" style="-fx-background-color: #4d94ff;" text="Search Customer" />
       <Label layoutX="24.0" layoutY="132.0" text="customer id">
          <font>
             <Font size="14.0" />
